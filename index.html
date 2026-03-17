@@ -172,6 +172,12 @@
         th { text-align: left; color: #ffcc80; }
         .time-col { width: 45%; color: #e0f7fa; font-family: monospace; font-size: 13px;}
 
+        /* 行程表展開容器 */
+        #schedule-container {
+            display: none; /* 預設隱藏 */
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
         /* 按鈕 */
         .btn {
             display: block;
@@ -216,10 +222,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 15px;
+            padding: 8px 15px;
             border-bottom: 1px dashed rgba(255,255,255,0.1);
+            text-decoration: none;
+            transition: background 0.3s;
         }
         .line-person:last-child { border-bottom: none; }
+        .line-person:hover { background: rgba(255,255,255,0.1); border-radius: 5px; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
@@ -257,23 +266,27 @@
                     <p>不知道您是否也曾在某個夏夜，突然想起那段一起走過的時光？<br>那份熟悉的感覺、笑聲，還有<span class="chalk-yellow">「回家」</span>的溫暖——</p>
                     <p>今年的想家，我們想邀請您，一起回來，再做一場夢 ✨</p>
                     
-                    <table>
-                        <tr><th>時間</th><th>流程</th></tr>
-                        <tr><td class="time-col">09:00 ~ 09:30</td><td>報到</td></tr>
-                        <tr><td class="time-col">09:30 ~ 09:40</td><td>禱告</td></tr>
-                        <tr><td class="time-col">09:40 ~ 09:50</td><td>教會代表致詞</td></tr>
-                        <tr><td class="time-col">09:50 ~ 10:00</td><td>影片回顧</td></tr>
-                        <tr><td class="time-col">10:00 ~ 10:40</td><td>學長姐分享</td></tr>
-                        <tr><td class="time-col">10:40 ~ 11:05</td><td>遊戲</td></tr>
-                        <tr><td class="time-col">11:05 ~ 11:30</td><td>休息 交流</td></tr>
-                        <tr><td class="time-col">11:30 ~ 11:45</td><td>獻詩 + 契歌教唱</td></tr>
-                        <tr><td class="time-col">11:45 ~ 11:50</td><td>現況介紹</td></tr>
-                        <tr><td class="time-col">11:50 ~ 12:00</td><td>唱詩 禱告</td></tr>
-                        <tr><td class="time-col">12:00 ~ 12:10</td><td>大合照</td></tr>
-                        <tr><td class="time-col">12:10 ~ 14:00</td><td>會後餐敘與交流</td></tr>
-                    </table>
+                    <a href="#" onclick="toggleSchedule(event)" id="schedule-btn" class="btn" style="margin: 15px auto; padding: 10px;">📖 點我查看詳細流程</a>
+                    
+                    <div id="schedule-container">
+                        <table>
+                            <tr><th>時間</th><th>流程</th></tr>
+                            <tr><td class="time-col">09:00 ~ 09:30</td><td>報到</td></tr>
+                            <tr><td class="time-col">09:30 ~ 09:40</td><td>禱告</td></tr>
+                            <tr><td class="time-col">09:40 ~ 09:50</td><td>教會代表致詞</td></tr>
+                            <tr><td class="time-col">09:50 ~ 10:00</td><td>影片回顧</td></tr>
+                            <tr><td class="time-col">10:00 ~ 10:40</td><td>學長姐分享</td></tr>
+                            <tr><td class="time-col">10:40 ~ 11:05</td><td>遊戲</td></tr>
+                            <tr><td class="time-col">11:05 ~ 11:30</td><td>休息 交流</td></tr>
+                            <tr><td class="time-col">11:30 ~ 11:45</td><td>獻詩 + 契歌教唱</td></tr>
+                            <tr><td class="time-col">11:45 ~ 11:50</td><td>現況介紹</td></tr>
+                            <tr><td class="time-col">11:50 ~ 12:00</td><td>唱詩 禱告</td></tr>
+                            <tr><td class="time-col">12:00 ~ 12:10</td><td>大合照</td></tr>
+                            <tr><td class="time-col">12:10 ~ 14:00</td><td>會後餐敘與交流</td></tr>
+                        </table>
+                    </div>
 
-                    <p style="font-size: 13px; text-align: center; color: #a5d6a7;">
+                    <p style="font-size: 13px; text-align: center; color: #a5d6a7; margin-top: 20px;">
                         「我每逢想念你們，就感謝我的神。」<br>－ 腓立比書 一章3節
                     </p>
                     <div class="signature">想念很久的 種子團契 敬上 🌱</div>
@@ -306,13 +319,14 @@
                     <p>
                         <span class="chalk-yellow">📍 地址：</span><br>
                         台南市東區崇德一街16號<br>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=台南市東區崇德一街16號" target="_blank" style="color: #ffcc80; font-size: 14px; text-decoration: none; display: inline-block; margin-top: 5px; border-bottom: 1px dashed #ffcc80; padding-bottom: 2px;">
+                        <a href="https://maps.google.com/?q=台南市東區崇德一街16號" target="_blank" style="color: #ffcc80; font-size: 14px; text-decoration: none; display: inline-block; margin-top: 5px; border-bottom: 1px dashed #ffcc80; padding-bottom: 2px;">
                             <i class="fas fa-map-marker-alt"></i> 點我開啟 Google 導航
                         </a>
                     </p>
                     <p>
                         <span class="chalk-blue">🚗 開車 / 騎車：</span><br>
-                        可以停周邊停車格，或對面公園有收費停車場🅿️。
+                        可以停周邊停車格、對面公園收費停車場🅿️，<br>
+                        或停放於 <strong>榮譽街停車場 (20元/h)</strong>，步行至教會約 10 分鐘。
                     </p>
                     <p style="margin-bottom: 5px;">
                         <span class="chalk-blue">🚇 大眾運輸：</span><br>
@@ -354,14 +368,17 @@
                             <strong>LINE 聯絡人</strong>
                         </div>
                         
-                        <div class="line-person">
-                            <span class="chalk-yellow">陳筠</span>
-                            <span class="chalk-blue">ID: 20030525michelle</span>
-                        </div>
-                        <div class="line-person">
-                            <span class="chalk-yellow">高至盛</span>
-                            <span class="chalk-blue">ID: 564930172856</span>
-                        </div>
+                        <a href="https://line.me/ti/p/~20030525michelle" target="_blank" class="line-person">
+                            <span class="chalk-yellow">總召 陳筠</span>
+                            <span class="chalk-blue"><i class="fas fa-user-plus" style="font-size: 12px; margin-right: 4px;"></i>ID: 20030525michelle</span>
+                        </a>
+                        
+                        <a href="https://line.me/ti/p/~564930172856" target="_blank" class="line-person">
+                            <span class="chalk-yellow">副召 高至盛</span>
+                            <span class="chalk-blue"><i class="fas fa-user-plus" style="font-size: 12px; margin-right: 4px;"></i>ID: 564930172856</span>
+                        </a>
+                        
+                        <p style="font-size: 12px; color: #ccc; text-align: center; margin-top: 10px; margin-bottom: 0;">（點擊上方 ID 可直接加 LINE 好友）</p>
                     </div>
                 </div>
 
@@ -376,6 +393,21 @@
             
             document.querySelector(`.tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
             document.getElementById(tabId).classList.add('active');
+        }
+
+        // 展開/隱藏 行程表的函數
+        function toggleSchedule(event) {
+            event.preventDefault(); // 防止網頁跳動
+            const container = document.getElementById('schedule-container');
+            const btn = document.getElementById('schedule-btn');
+            
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+                btn.innerHTML = '📖 隱藏詳細流程';
+            } else {
+                container.style.display = 'none';
+                btn.innerHTML = '📖 點我查看詳細流程';
+            }
         }
     </script>
 </body>
