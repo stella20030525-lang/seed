@@ -8,111 +8,81 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
         
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1c3d5a 0%, #36628b 50%, #689cbd 100%);
-            font-family: 'Nunito', 'Microsoft JhengHei', sans-serif;
-            color: #f8f9fa;
-            overflow-x: hidden;
-        }
-
-        .stars {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 80px 160px, #ddd, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 150px 40px, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 200px 120px, #fff, rgba(0,0,0,0));
-            background-repeat: repeat; background-size: 250px 250px; opacity: 0.8;
-            animation: twinkle 4s infinite alternate;
-        }
+        body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1c3d5a 0%, #36628b 50%, #689cbd 100%); font-family: 'Nunito', 'Microsoft JhengHei', sans-serif; color: #f8f9fa; overflow-x: hidden; }
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)), radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)), radial-gradient(2px 2px at 80px 160px, #ddd, rgba(0,0,0,0)), radial-gradient(2px 2px at 150px 40px, #fff, rgba(0,0,0,0)), radial-gradient(2px 2px at 200px 120px, #fff, rgba(0,0,0,0)); background-repeat: repeat; background-size: 250px 250px; opacity: 0.8; animation: twinkle 4s infinite alternate; }
         @keyframes twinkle { 0% { opacity: 0.5; } 100% { opacity: 1; } }
-
         .bg-illustrations { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
         .illust { position: absolute; opacity: 0.7; animation: float 6s ease-in-out infinite; }
-        .i1 { top: 8%; left: 8%; font-size: 3.5rem; animation-delay: 0s; }
-        .i2 { top: 18%; right: 12%; font-size: 2rem; animation-delay: 1s; }
-        .i3 { bottom: 10%; left: 5%; font-size: 4rem; animation-delay: 2s; }
-        .i4 { bottom: 15%; right: -5%; font-size: 5rem; animation-delay: 0.5s; opacity: 0.5; }
-        .i5 { top: 30%; left: -10%; font-size: 6rem; animation-delay: 1.5s; opacity: 0.3; }
-        .i6 { bottom: 35%; right: 15%; font-size: 1.8rem; animation-delay: 2.5s; }
-        @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+        .i1 { top: 8%; left: 8%; font-size: 3.5rem; animation-delay: 0s; } .i2 { top: 18%; right: 12%; font-size: 2rem; animation-delay: 1s; }
+        .i3 { bottom: 10%; left: 5%; font-size: 4rem; animation-delay: 2s; } .i4 { bottom: 15%; right: -5%; font-size: 5rem; animation-delay: 0.5s; opacity: 0.5; }
+        .i5 { top: 30%; left: -10%; font-size: 6rem; animation-delay: 1.5s; opacity: 0.3; } .i6 { bottom: 35%; right: 15%; font-size: 1.8rem; animation-delay: 2.5s; }
+        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
 
         .container { width: 100%; max-width: 400px; z-index: 1; margin: 20px 10px; position: relative; }
-
         .tabs { display: flex; gap: 4px; margin-bottom: -5px; padding: 0 15px; z-index: 2; position: relative; }
-        .tab {
-            flex: 1; padding: 10px 0; text-align: center; font-size: 13px; font-weight: bold;
-            color: #4a3622; background: #b58d66; border-radius: 8px 8px 0 0; cursor: pointer;
-            transition: all 0.3s; border: 2px solid #6b4c2a; border-bottom: none;
-        }
+        .tab { flex: 1; padding: 10px 0; text-align: center; font-size: 13px; font-weight: bold; color: #4a3622; background: #b58d66; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s; border: 2px solid #6b4c2a; border-bottom: none; }
         .tab.active { background: #d4a373; color: #3e2723; transform: translateY(-2px); }
-
-        .card {
-            background: #3a6348; border: 10px solid #8b5a2b; border-radius: 8px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 0 20px rgba(0,0,0,0.2);
-            overflow: hidden; position: relative;
-        }
-
+        .card { background: #3a6348; border: 10px solid #8b5a2b; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 0 20px rgba(0,0,0,0.2); overflow: hidden; position: relative; }
         .content-area { padding: 25px 20px; min-height: 400px; }
-        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
-        .tab-content.active { display: block; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; } .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        h2 {
-            margin-top: 0; color: #ffeb3b; font-size: 20px; text-align: center;
-            letter-spacing: 2px; border-bottom: 2px dashed rgba(255,255,255,0.4); padding-bottom: 10px;
-        }
+        h2 { margin-top: 0; color: #ffeb3b; font-size: 20px; text-align: center; letter-spacing: 2px; border-bottom: 2px dashed rgba(255,255,255,0.4); padding-bottom: 10px; }
         p { line-height: 1.7; font-size: 14.5px; text-align: justify; margin-bottom: 15px; color: #fdfdfd; }
-        .text-center { text-align: center; }
-        .chalk-blue { color: #81d4fa; font-weight: bold; }
-        .chalk-yellow { color: #fff59d; font-weight: bold; }
+        .text-center { text-align: center; } .chalk-blue { color: #81d4fa; font-weight: bold; } .chalk-yellow { color: #fff59d; font-weight: bold; }
         .signature { text-align: right; font-size: 13px; color: #ffd54f; margin-top: 20px; font-style: italic; }
 
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13.5px; }
-        th, td { padding: 8px 5px; border-bottom: 1px dashed rgba(255,255,255,0.3); }
-        th { text-align: left; color: #ffcc80; }
-        .time-col { width: 45%; color: #e0f7fa; font-family: monospace; font-size: 13px;}
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13.5px; } th, td { padding: 8px 5px; border-bottom: 1px dashed rgba(255,255,255,0.3); } th { text-align: left; color: #ffcc80; } .time-col { width: 45%; color: #e0f7fa; font-family: monospace; font-size: 13px;}
         #schedule-container { display: none; animation: fadeIn 0.4s ease-in-out; }
-
-        .btn {
-            display: block; width: 90%; padding: 12px; background: transparent; color: #ffeb3b;
-            text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold;
-            margin: 20px auto 0; border: 2px solid #ffeb3b; transition: all 0.3s; cursor: pointer; font-size: 16px;
-        }
-        .btn:hover { background: rgba(255,235,59,0.15); }
+        .btn { display: block; width: 90%; padding: 12px; background: transparent; color: #ffeb3b; text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 20px auto 0; border: 2px solid #ffeb3b; transition: all 0.3s; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: rgba(255,235,59,0.15); } .btn:disabled { border-color: #999; color: #999; cursor: not-allowed; }
         
-        .contact-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 15px; margin-top: 15px; }
-        .contact-box a { color: #81d4fa; text-decoration: none; font-weight: bold; }
-        .icon-title { font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; }
-        .ig-icon { color: #e1306c; font-size: 20px; }
-        .line-icon { color: #00c300; font-size: 20px; }
-        .line-person {
-            display: flex; justify-content: space-between; align-items: center; padding: 8px 15px;
-            border-bottom: 1px dashed rgba(255,255,255,0.1); text-decoration: none; transition: background 0.3s;
-        }
-        .line-person:last-child { border-bottom: none; }
-        .line-person:hover { background: rgba(255,255,255,0.1); border-radius: 5px; }
+        .contact-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 15px; margin-top: 15px; } .contact-box a { color: #81d4fa; text-decoration: none; font-weight: bold; } .icon-title { font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; } .ig-icon { color: #e1306c; font-size: 20px; } .line-icon { color: #00c300; font-size: 20px; }
+        .line-person { display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); text-decoration: none; transition: background 0.3s; } .line-person:last-child { border-bottom: none; } .line-person:hover { background: rgba(255,255,255,0.1); border-radius: 5px; }
 
+        /* 商品表單樣式 */
+        .product-item { display: flex; flex-direction: column; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 10px; margin-bottom: 15px; }
+        .product-header { display: flex; gap: 12px; align-items: flex-start; }
+        .product-img { width: 75px; height: 75px; border-radius: 8px; object-fit: cover; border: 2px solid rgba(255,255,255,0.3); background-color: #fff; flex-shrink: 0; cursor: zoom-in; transition: transform 0.2s;}
+        .product-img:active { transform: scale(0.95); }
+        .product-info { flex: 1; }
+        .product-name { font-weight: bold; color: #fff59d; margin-bottom: 3px; font-size: 15px; }
+        .product-price { color: #81d4fa; font-size: 13.5px; margin-bottom: 3px; }
+
+        /* 圖片放大模態框 (Lightbox) */
+        .modal { display: none; position: fixed; z-index: 1000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(3px); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease; }
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close-btn { position: absolute; top: 20px; right: 30px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 1001; }
+        .close-btn:hover, .close-btn:focus { color: #ffeb3b; text-decoration: none; cursor: pointer; }
+
+        /* 多選項列表樣式 */
+        .variant-list { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .variant-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.06); padding: 5px 10px; border-radius: 6px; border: 1px dashed rgba(255,255,255,0.2);}
+        .variant-name { font-size: 13px; color: #fdfdfd; }
+
+        /* 數量加減控制 */
+        .qty-control { display: flex; align-items: center; gap: 5px; }
+        .qty-btn { width: 28px; height: 28px; border-radius: 5px; border: none; background: #ffcc80; color: #3e2723; font-weight: bold; cursor: pointer; font-size: 16px; display: flex; justify-content: center; align-items: center;}
+        .qty-input { width: 40px !important; height: 28px; text-align: center; border-radius: 5px; border: 1px dashed rgba(255,255,255,0.5); background: rgba(0,0,0,0.3); color: #fff; padding: 0 !important; font-weight: bold; font-family: 'Nunito', sans-serif;}
+        .qty-input::-webkit-outer-spin-button, .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+        input[type="text"], input[type="tel"], input[type="email"] { width: 100%; padding: 8px; border-radius: 5px; border: 1px dashed rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); color: #fff; font-family: 'Nunito', sans-serif; font-size: 14px; box-sizing: border-box; outline: none; }
+        input::placeholder { color: rgba(255,255,255,0.5); }
+        .input-group { margin-bottom: 12px; } .input-group label { display: block; margin-bottom: 5px; font-size: 13px; color: #ffcc80; }
+        #order-msg { text-align: center; font-weight: bold; margin-top: 15px; font-size: 14px; } .msg-success { color: #69f0ae; } .msg-error { color: #ff5252; }
     </style>
 </head>
 <body>
-
     <div class="stars"></div>
-
     <div class="bg-illustrations">
-        <div class="illust i1">🌙</div>
-        <div class="illust i2">✨</div>
-        <div class="illust i3">🌱</div>
-        <div class="illust i4">🏫</div>
-        <div class="illust i5">☁️</div>
-        <div class="illust i6">✨</div>
+        <div class="illust i1">🌙</div><div class="illust i2">✨</div><div class="illust i3">🌱</div>
+        <div class="illust i4">🏫</div><div class="illust i5">☁️</div><div class="illust i6">✨</div>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <img class="modal-content" id="expandedImg" onclick="event.stopPropagation()">
     </div>
 
     <div class="container">
@@ -131,9 +101,7 @@
                     <h2>🌙 種夏夜之夢-返校日</h2>
                     <p>不知道您是否也曾在某個夏夜，突然想起那段一起走過的時光？<br>那份熟悉的感覺、笑聲，還有<span class="chalk-yellow">「回家」</span>的溫暖——</p>
                     <p>今年的想家，我們想邀請您，一起回來，再做一場夢 ✨</p>
-                    
                     <a href="#" onclick="toggleSchedule(event)" id="schedule-btn" class="btn" style="margin: 15px auto; padding: 10px;">📖 點我查看詳細流程</a>
-                    
                     <div id="schedule-container">
                         <table>
                             <tr><th>時間</th><th>流程</th></tr>
@@ -151,10 +119,7 @@
                             <tr><td class="time-col">12:20 ~ 14:00</td><td>會後餐敘與交流</td></tr>
                         </table>
                     </div>
-
-                    <p style="font-size: 13px; text-align: center; color: #a5d6a7; margin-top: 20px;">
-                        「我每逢想念你們，就感謝我的神。」<br>－ 腓立比書 一章3節
-                    </p>
+                    <p style="font-size: 13px; text-align: center; color: #a5d6a7; margin-top: 20px;">「我每逢想念你們，就感謝我的神。」<br>－ 腓立比書 一章3節</p>
                     <div class="signature">想念很久的 種子團契 敬上 🌱</div>
                 </div>
 
@@ -162,17 +127,9 @@
                     <h2>📝 報名資訊</h2>
                     <p class="text-center chalk-yellow">這一天，不只是活動<br>更是一場屬於我們的重逢。</p>
                     <p>不論你畢業多久、走到哪裡，這裡始終為你留一盞燈。期待在這個夜晚，與你一起種下屬於我們的《夏夜之夢》。</p>
-                    <p>
-                        <span class="chalk-blue">日期：</span>2026 年 6 月 14 日（日）<br>
-                        <span class="chalk-blue">時間：</span>早上 09:10 報到<br>
-                        <span class="chalk-blue">地點：</span>真耶穌教會東昇教會
-                    </p>
+                    <p><span class="chalk-blue">日期：</span>2026 年 6 月 14 日（日）<br><span class="chalk-blue">時間：</span>早上 09:10 報到<br><span class="chalk-blue">地點：</span>真耶穌教會東昇教會</p>
                     <div class="contact-box">
-                        <p style="margin:0; font-size: 13px; color: #ffab91;">
-                            <strong>🔔 貼心提醒：</strong><br>
-                            ・為方便活動安排，請於 <strong>4/30前</strong> 事先報名。<br>
-                            ・若有臨時狀況無法出席，也歡迎提前告知我們。
-                        </p>
+                        <p style="margin:0; font-size: 13px; color: #ffab91;"><strong>🔔 貼心提醒：</strong><br>・為方便活動安排，請於 <strong>4/30前</strong> 事先報名。<br>・若有臨時狀況無法出席，也歡迎提前告知我們。</p>
                     </div>
                     <a href="https://forms.gle/AQn1H8ex5CircoKk9" target="_blank" class="btn">👉 點我填寫報名表單</a>
                 </div>
@@ -180,62 +137,151 @@
                 <div id="traffic" class="tab-content">
                     <h2>🚌 交通方式</h2>
                     <p>回家的路永遠為你敞開，以下是抵達真耶穌教會東昇教會的交通資訊：</p>
-                    <p>
-                        <span class="chalk-yellow">📍 地址：</span><br>
-                        台南市東區崇德一街16號<br>
-                        <a href="https://maps.google.com/?q=台南市東區崇德一街16號" target="_blank" style="color: #ffcc80; font-size: 14px; text-decoration: none; display: inline-block; margin-top: 5px; border-bottom: 1px dashed #ffcc80; padding-bottom: 2px;">
-                            <i class="fas fa-map-marker-alt"></i> 點我開啟 Google 導航
-                        </a>
-                    </p>
-                    <p>
-                        <span class="chalk-blue">🚗 開車 / 騎車：</span><br>
-                        <strong>收費停車場 (20元/h)：</strong><br>
-                        1. 德光公園停車場 (教會對面)<br>
-                        2. 榮譽街停車場 (步行至教會約 10 分鐘)<br>
-                        <span style="display: block; margin-top: 5px;">※ 或停放於周邊停車格。</span>
-                    </p>
-                    <p style="margin-bottom: 5px; margin-top: 15px;">
-                        <span class="chalk-blue">🚇 大眾運輸：</span><br>
-                        可搭乘火車至【台南火車站】，轉乘以下公車：
-                    </p>
+                    <p><span class="chalk-yellow">📍 地址：</span><br>台南市東區崇德一街16號<br><a href="https://maps.google.com/?q=台南市東區崇德一街16號" target="_blank" style="color: #ffcc80; font-size: 14px; text-decoration: none; display: inline-block; margin-top: 5px; border-bottom: 1px dashed #ffcc80; padding-bottom: 2px;"><i class="fas fa-map-marker-alt"></i> 點我開啟 Google 導航</a></p>
+                    <p><span class="chalk-blue">🚗 開車 / 騎車：</span><br><strong>收費停車場 (20元/h)：</strong><br>1. 德光公園停車場 (教會對面)<br>2. 榮譽街停車場 (步行至教會約 10 分鐘)<br><span style="display: block; margin-top: 5px;">※ 或停放於周邊停車格。</span></p>
+                    <p style="margin-bottom: 5px; margin-top: 15px;"><span class="chalk-blue">🚇 大眾運輸：</span><br>可搭乘火車至【台南火車站】，轉乘以下公車：</p>
                     <ul style="margin-top: 5px; padding-left: 20px; font-size: 14px; color: #fdfdfd; line-height: 1.6;">
-                        <li>搭乘 <span class="chalk-yellow">3號（都會公車 103路）</span>，至「崇學崇明路口」站下車 (步行約 5 分鐘)</li>
-                        <li>搭乘 <span class="chalk-yellow">6路</span>，至「衛生局」站下車 (步行約 11 分鐘)</li>
-                        <li>搭乘 <span class="chalk-yellow">0右</span>，至「大東夜市」站下車 (步行約 11 分鐘)</li>
+                        <li>搭乘 <span class="chalk-yellow">3號（都會公車 103路）</span>，至「崇學崇明路口」下 (步行約 5 分鐘)</li>
+                        <li>搭乘 <span class="chalk-yellow">6路</span> 或 <span class="chalk-yellow">0右</span>，至「衛生局」或「大東夜市」下 (步行約 11 分鐘)</li>
                     </ul>
                 </div>
 
                 <div id="souvenir" class="tab-content">
                     <h2>🎁 紀念品預購</h2>
-                    <p>這次我們特別設計了「種夏夜之夢」專屬紀念品，把團契的溫暖具象化，讓你隨身帶著走！</p>
+                    <p>專屬「想念」系列周邊，把團契的溫暖隨身帶著走！<br><span style="font-size: 12px; color: #ffeb3b;">（💡 點擊圖片可放大查看細節）</span></p>
                     
-                    <div class="contact-box text-center" style="margin: 30px 0;">
-                        <span class="chalk-yellow" style="font-size: 22px; letter-spacing: 3px;">✨ 敬請期待 ✨</span>
-                    </div>
+                    <form id="preorder-form">
+                        
+                        <div class="product-item">
+                            <div class="product-header">
+                                <img src="https://i.ibb.co/ZpGwxzWj/image.jpg" alt="種子麻布袋" class="product-img" onclick="openModal(this.src)">
+                                <div class="product-info">
+                                    <div class="product-name">1. 種子麻布袋(A6)</div>
+                                    <div class="product-price">$ 200 / 個</div>
+                                    <div class="qty-control" style="margin-top: 10px;">
+                                        <button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button>
+                                        <input type="number" class="qty-input" name="qty_bag" value="0" min="0">
+                                        <button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <p class="text-center">紀念品內容正在秘密籌備中🤫<br>最新消息與預購資訊，請持續鎖定我們的 IG 粉專哦！</p>
+                        <div class="product-item">
+                            <div class="product-header">
+                                <img src="https://i.ibb.co/1GHLh4Md/image.jpg" alt="種要在一起襪子" class="product-img" onclick="openModal(this.src)">
+                                <div class="product-info">
+                                    <div class="product-name">2. 種要在一起襪子</div>
+                                    <div class="product-price">$ 90 / 雙</div>
+                                </div>
+                            </div>
+                            <div class="variant-list">
+                                <div class="variant-row"><span class="variant-name">黑色</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_socks_black" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">白色</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_socks_white" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                            </div>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-header">
+                                <img src="https://i.ibb.co/Ww8pKZB/image.jpg" alt="有一種想念杯墊" class="product-img" onclick="openModal(this.src)">
+                                <div class="product-info">
+                                    <div class="product-name">3. 有一種想念杯墊</div>
+                                    <div class="product-price">$ 40 / 個</div>
+                                </div>
+                            </div>
+                            <div class="variant-list">
+                                <div class="variant-row"><span class="variant-name">粉色款式</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_miss_pink" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">淡黃款式</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_miss_yellow" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                            </div>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-header">
+                                <img src="https://i.ibb.co/svX14DgR/image.jpg" alt="手繪風杯墊" class="product-img" onclick="openModal(this.src)">
+                                <div class="product-info">
+                                    <div class="product-name">4. 手繪風杯墊</div>
+                                    <div class="product-price">$ 40 / 個</div>
+                                    <div class="qty-control" style="margin-top: 10px;">
+                                        <button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button>
+                                        <input type="number" class="qty-input" name="qty_coaster_draw" value="0" min="0">
+                                        <button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-header">
+                                <img src="https://i.ibb.co/23yZ1jPf/image.jpg" alt="種子飲料提袋" class="product-img" onclick="openModal(this.src)">
+                                <div class="product-info">
+                                    <div class="product-name">5. 種子飲料提袋</div>
+                                    <div class="product-price">$ 40 / 個</div>
+                                    <div class="qty-control" style="margin-top: 10px;">
+                                        <button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button>
+                                        <input type="number" class="qty-input" name="qty_drink_bag" value="0" min="0">
+                                        <button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-header">
+                                <div style="display: flex; gap: 6px; flex-shrink: 0;">
+                                    <img src="https://i.ibb.co/dszJp3pD/image.jpg" alt="正面" class="product-img" style="width: 65px; height: 65px;" onclick="openModal(this.src)">
+                                    <img src="https://i.ibb.co/DgL8y6Q2/image.jpg" alt="背面" class="product-img" style="width: 65px; height: 65px;" onclick="openModal(this.src)">
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">6. 黑色新契服</div>
+                                    <div class="product-price">$ 250 / 件</div>
+                                    <div style="font-size: 11px; color: #ffab91; margin-top: -3px; margin-bottom: 5px;">※正面為全黑 背面才有圖案</div>
+                                </div>
+                            </div>
+                            <div class="variant-list">
+                                <div class="variant-row"><span class="variant-name">S</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_new_s" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">M</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_new_m" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">L</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_new_l" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">XL</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_new_xl" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                            </div>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-header">
+                                <div style="display: flex; gap: 6px; flex-shrink: 0;">
+                                    <img src="https://i.ibb.co/rGt5szW7/image.jpg" alt="正面" class="product-img" style="width: 65px; height: 65px;" onclick="openModal(this.src)">
+                                    <img src="https://i.ibb.co/Z5kymZ9/image.jpg" alt="背面" class="product-img" style="width: 65px; height: 65px;" onclick="openModal(this.src)">
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">7. 紅色舊契服</div>
+                                    <div class="product-price">$ 250 / 件</div>
+                                </div>
+                            </div>
+                            <div class="variant-list">
+                                <div class="variant-row"><span class="variant-name">S</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_old_s" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">M</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_old_m" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">L</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_old_l" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                                <div class="variant-row"><span class="variant-name">XL</span><div class="qty-control"><button type="button" class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>0) input.value--;">-</button><input type="number" class="qty-input" name="qty_old_xl" value="0" min="0"><button type="button" class="qty-btn" onclick="this.previousElementSibling.value++;">+</button></div></div>
+                            </div>
+                        </div>
+
+                        <h3 style="color: #ffeb3b; font-size: 16px; margin: 20px 0 10px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px;">填寫訂購資料</h3>
+                        <div class="input-group"><label>姓名 *</label><input type="text" name="name" required placeholder="請輸入姓名"></div>
+                        <div class="input-group"><label>電話 *</label><input type="tel" name="phone" required placeholder="請輸入聯絡電話"></div>
+                        <div class="input-group"><label>Gmail * (用於回傳訂單內容)</label><input type="email" name="email" required placeholder="example@gmail.com"></div>
+
+                        <button type="submit" class="btn" id="submit-btn">送出預購</button>
+                        <div id="order-msg"></div>
+                    </form>
                 </div>
 
                 <div id="contact" class="tab-content">
                     <h2>📞 聯絡我們</h2>
                     <p>如果在報名或交通上有任何問題，都非常歡迎隨時聯絡我們，我們隨時為你解答！</p>
-                    
-                    <div class="contact-box text-center">
-                        <div class="icon-title"><i class="fab fa-instagram ig-icon"></i><strong>Instagram 粉專</strong></div>
-                        <p style="margin: 5px 0;"><a href="https://www.instagram.com/_tjcseed_/" target="_blank">@_tjcseed_</a></p>
-                        <p style="font-size: 12px; color: #ccc; margin-bottom: 0;">（點擊上方帳號可直接連結至 IG）</p>
-                    </div>
-
+                    <div class="contact-box text-center"><div class="icon-title"><i class="fab fa-instagram ig-icon"></i><strong>Instagram 粉專</strong></div><p style="margin: 5px 0;"><a href="https://www.instagram.com/_tjcseed_/" target="_blank">@_tjcseed_</a></p><p style="font-size: 12px; color: #ccc; margin-bottom: 0;">（點擊上方帳號可直接連結至 IG）</p></div>
                     <div class="contact-box">
                         <div class="icon-title"><i class="fab fa-line line-icon"></i><strong>LINE 聯絡人</strong></div>
-                        <a href="https://line.me/ti/p/~20030525michelle" target="_blank" class="line-person">
-                            <span class="chalk-yellow">總召 陳筠</span>
-                            <span class="chalk-blue"><i class="fas fa-user-plus" style="font-size: 12px; margin-right: 4px;"></i>ID: 20030525michelle</span>
-                        </a>
-                        <a href="https://line.me/ti/p/~564930172856" target="_blank" class="line-person">
-                            <span class="chalk-yellow">副召 高至盛</span>
-                            <span class="chalk-blue"><i class="fas fa-user-plus" style="font-size: 12px; margin-right: 4px;"></i>ID: 564930172856</span>
-                        </a>
+                        <a href="https://line.me/ti/p/~20030525michelle" target="_blank" class="line-person"><span class="chalk-yellow">總召 陳筠</span><span class="chalk-blue"><i class="fas fa-user-plus" style="font-size: 12px; margin-right: 4px;"></i>ID: 20030525michelle</span></a>
+                        <a href="https://line.me/ti/p/~564930172856" target="_blank" class="line-person"><span class="chalk-yellow">副召 高至盛</span><span class="chalk-blue"><i class="fas fa-user-plus" style="font-size: 12px; margin-right: 4px;"></i>ID: 564930172856</span></a>
                         <p style="font-size: 12px; color: #ccc; text-align: center; margin-top: 10px; margin-bottom: 0;">（點擊上方 ID 可直接加 LINE 好友）</p>
                     </div>
                 </div>
@@ -257,13 +303,51 @@
             const container = document.getElementById('schedule-container');
             const btn = document.getElementById('schedule-btn');
             if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'block';
-                btn.innerHTML = '📖 隱藏詳細流程';
+                container.style.display = 'block'; btn.innerHTML = '📖 隱藏詳細流程';
             } else {
-                container.style.display = 'none';
-                btn.innerHTML = '📖 點我查看詳細流程';
+                container.style.display = 'none'; btn.innerHTML = '📖 點我查看詳細流程';
             }
         }
+
+        // 圖片放大功能
+        function openModal(src) {
+            document.getElementById("imageModal").style.display = "block";
+            document.getElementById("expandedImg").src = src;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // 處理表單送出
+        document.getElementById('preorder-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyrhgFFOHYwF71iWcuAALRv3d4rw7iuAx6jbrourHZBRnOimn78OBCN7vC1HL7VW7cf/exec'; 
+            
+            const form = e.target;
+            const btn = document.getElementById('submit-btn');
+            const msgBox = document.getElementById('order-msg');
+            
+            let totalQty = 0;
+            form.querySelectorAll('.qty-input').forEach(input => { totalQty += parseInt(input.value) || 0; });
+            if(totalQty === 0) { msgBox.innerHTML = '<span class="msg-error">請至少選擇一個紀念品數量哦！</span>'; return; }
+
+            btn.disabled = true; btn.innerHTML = '送出中...'; msgBox.innerHTML = '';
+            const formData = new FormData(form);
+            
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    btn.innerHTML = '✅ 送出成功！';
+                    msgBox.innerHTML = '<span class="msg-success">已成功收到您的預購資料，並寄送確認信至您的信箱！</span>';
+                    form.reset();
+                    setTimeout(() => { btn.disabled = false; btn.innerHTML = '送出預購'; }, 3000);
+                })
+                .catch(error => {
+                    btn.disabled = false; btn.innerHTML = '送出預購';
+                    msgBox.innerHTML = '<span class="msg-error">發生錯誤，請稍後再試。</span>';
+                });
+        });
     </script>
 </body>
 </html>
